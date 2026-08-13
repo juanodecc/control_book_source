@@ -1,6 +1,12 @@
 # Guía de instalación de las herramientas computacionales
 
+Esta guía da un instructivo que permiten instalar las herramientas que estamos usando actualmente en la materia. Pueden buscar información extra en este [sitio](https://conda-forge.org/download/) que mantengo.
+
 ## Verificación del tipo de sistema operativo (32 o 64 bits)
+
+### En Windows 11
+
+Selecciona el botón Inicio (icono de "ventanita") y después, ``Configuración > Sistema``. Buscar en ``Información``, consulta el tipo de sistema.
 
 ### En Windows 10 y Windows 8.1
 
@@ -11,18 +17,17 @@ Selecciona el botón Inicio y después, ``Configuración > Sistema > Acerca de``
 Selecciona el botón Inicio, haz clic con el botón derecho en  
 ``Equipo`` y selecciona `Propiedades`. En `Sistema`, consulta el `tipo de sistema`.
 
-## Descargar Miniconda de acuerdo al tipo de sistema operativo
+## Descargar Miniforge o conda-forge de acuerdo al tipo de sistema operativo
 
-Seguir el enlace de [Miniconda](https://docs.conda.io/en/latest/miniconda.html) y elegir la versión de `Python 3.X` (donde X es un número entero) que este acorde al tipo de sistema operativo instalado es su máquina según lo averiguado en el punto anterior.
+Seguir el enlace de [Miniforge](https://conda-forge.org/download/) y elegir la última versión con `Python 3`, que este acorde al tipo de sistema operativo instalado en su máquina según lo averiguado en el punto anterior.
 
-## Instalar Miniconda
+## Instalar Miniforge
 
-Seguir las recomendaciones por defecto dadas por el instalador. Una vez terminada la instalación tendremos Python instalado en nuestro sistema. Además tendremos en el menú de inicio un ítem
-que se llama Anaconda Powershell Prompt, el cual abriremos para continuar con la instalación de las herramientas del curso.
+Seguir las recomendaciones por defecto dadas por el instalador. Una vez terminada la instalación tendremos Python instalado en nuestro sistema. Además tendremos en el menú de inicio un ítem que se llama Miniforge Prompt, el cual abriremos para continuar con la instalación de las herramientas del curso.
 
 ## Instalación de las herramientas especificas del curso
 
-Para continuar con la instalación necesitaremos descargar el archivo [dyc.yml](https://drive.google.com/file/d/1agx9I7KoTB2Fw9MO6_tuzQqRSai2iBgV/view?usp=sharing) haciendo clock sobre el enlace anterior. Una vez descargado, dirigirse con la consola de Anaconda Powershell Prompt abierta a la carpeta de descargas donde se encuentra el archivo `dyc.yml` descargado anteriormente. En general, para dirigirse a esta carpeta debemos tipear
+Para continuar con la instalación necesitaremos descargar el archivo [dyc.yml](https://drive.google.com/file/d/1wd7Bfa-4b7AoGzGAKgYS6sTK2EOgQfWs/view?usp=share_link) haciendo clock sobre el enlace anterior. Una vez descargado, dirigirse con la consola de Anaconda Powershell Prompt abierta a la carpeta de descargas donde se encuentra el archivo `dyc.yml` descargado anteriormente. En general, para dirigirse a esta carpeta debemos tipear
 
 ```bash
 cd ~\Downloads\
@@ -36,10 +41,10 @@ dir dyc.yml
 
 Si nos encontramos en la carpeta donde está el archivo este deberá aparecer luego del comando anterior.
 
-Finalmente para instalar todas las herramientas necesarias en el curso debemos ejecutar en este comando:
+Finalmente para instalar todas las herramientas necesarias en el curso debemos ejecutar en este comando (es preferible usar mamba, sino usar conda):
 
 ```bash
-conda env create --file dyc.yml
+mamba env create --file dyc.yml
 ```
 
 Una vez terminado este paso tendremos instaladas todas las herramientas necesarias para la materia. Este paso puede tardar un tiempo largo dependiendo de la velocidad de conexión. Si la instalación fué exitosa encontraremos dos ítems en el menú de inicio que son los que utilizaremos:
