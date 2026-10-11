@@ -73,6 +73,7 @@ El diseño de un sistema de control suele desarrollarse como una secuencia de pa
  %El diagrama de flujo siguiente muestra el mismo proceso con sus lazos de iteración. El código es texto plano, por lo que puede editarse directamente (ver el archivo `diagrama_proceso_diseno.mmd` o pegarlo en <https://mermaid.live>).%
 
 ```{mermaid}
+:zoom:
 flowchart TD
     subgraph F1["Fase 1 - Análisis"]
         A["1. Estudiar la planta y<br/>los objetivos de control"]
