@@ -14,6 +14,8 @@ kernelspec:
 
 # Especificaciones de sistemas de control en el dominio de la frecuencia
 
+El contenido de este capítulo se basa en los apuntes del Departamento de Ingeniería de Sistemas y Automática de la Universidad de Valladolid {cite}`uva_espec_frecuencia` y en el capítulo 2 de {cite}`skogestad2005multivariable`.
+
 ## Sensibilidad y sensibilidad complementaria
 
 Sea el sistema de control de la {numref}`Figura %s <espec_frec_fig1>`. Su función de transferencia de lazo es $L=GK$ y las relaciones de lazo cerrado son:
@@ -208,7 +210,7 @@ alt : zonas de frecuencia para L(s)
 name: espec_frec_fig5
 align : center
 ---
-Forma deseada de $|L|$ (loop-shaping) y zonas de especificación. Ejemplo con $L(s)=\frac{3}{s(s+2)}$. Adaptada de {ref}`los apuntes de la Universidad de Valladolid y de Skogestad y Postlethwaite <espec_frec_referencias>`.
+Forma deseada de $|L|$ (loop-shaping) y zonas de especificación. Ejemplo con $L(s)=\frac{3}{s(s+2)}$. Adaptada de {cite}`uva_espec_frecuencia,skogestad2005multivariable`.
 ```
 
 **En baja frecuencia (Zona B):** Atenuación de perturbaciones de proceso.
@@ -258,8 +260,8 @@ Procedimiento para obtener el controlador $K(s)$:
 1. Se obtiene el controlador como $K(s) = L(s)\,G(s)^{-1}$. Como $L$ contiene los polos y ceros inestables de $G$, $K$ no los cancela y se preserva la estabilidad interna. Si $K$ resulta impropio, se agregan polos de alta frecuencia (por encima de $\omega_2$).
 1. Se verifican las especificaciones sobre $S$, $T$ y $SK$ (márgenes, picos de resonancia, anchos de banda y esfuerzo de control) en frecuencia y mediante simulación temporal. Si no se cumplen, se corrige la forma de $L$ y se repite el procedimiento.
 
-(espec_frec_referencias)=
 ## Referencias
 
-* Departamento de Ingeniería de Sistemas y Automática. _Especificación de sistemas de control en el dominio de la frecuencia_. Apuntes de cátedra, Escuela Técnica Superior de Ingenieros Industriales (ETSII), Universidad de Valladolid.
-* S. Skogestad e I. Postlethwaite. _Multivariable Feedback Control: Analysis and Design_. 2da ed. John Wiley & Sons, 2005. Capítulo 2: "Classical feedback control".
+```{bibliography}
+:filter: docname in docnames
+```
