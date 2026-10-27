@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-+++ {"colab_type": "text", "id": "V-kf_C3Hhklj"}
++++
 
 # Transformación lineal del espacio de estado
 
@@ -29,7 +29,7 @@ Una transformación lineal mediante la matriz $\mathbf T$, que hace:
 
 $$\mathbf x= \mathbf T \mathbf z$$
 
-Sustituyendo la ecuación de la transformación en la de la ecuación de estados
+Sustituyendo la ecuación de la transformación en la ecuación de estados:
 
 $$
 \begin{array}{rl}
@@ -38,10 +38,10 @@ $$
  \end{array}
 $$
 
-Sustituyendo el la ecuación de salida se tiene:
+Sustituyendo en la ecuación de salida se tiene:
 
  $$y = \mathbf C \mathbf{Tz} + Du$$
- 
+
 Comparando las ecuaciones del sistema transformado, podemos ver que la matriz $\mathbf T$ transforma al sistema en:
 
 $$
@@ -55,9 +55,9 @@ $$
 
 +++
 
-# Transformación a la forma canónica de controlabilidad
+## Transformación a la forma canónica de controlabilidad
 
-La matrices de un sistema de orden 3 lineal e invariante en el tiempo representado mediante su forma canónica de controlabilidad tiene la forma:
+Las matrices de un sistema lineal e invariante en el tiempo de orden 3, representado mediante su forma canónica de controlabilidad, tienen la forma:
 
 $$
 A_c = \begin{bmatrix}
@@ -77,15 +77,15 @@ c_1&c_2&c_3
 
 +++
 
-Como vimos anteriormente, una transformación lineal mediante la matriz $\mathbf T$, que hace:
+Como vimos anteriormente, consideramos una transformación lineal mediante la matriz $\mathbf T$, que hace:
 
 $$\mathbf x=\mathbf{Tz}$$
 
-Por lo tanto podemos, llamando $\mathbf{\bar A} = \mathbf A_c$, tenemos que:
+Llamando $\mathbf{\bar A} = \mathbf A_c$, de $\mathbf{A_c} = \mathbf{T^{-1}AT}$ tenemos que:
 
 $$\mathbf{A_c} \mathbf {T^{-1}}=\mathbf{T^{-1}} \mathbf {A}$$
 
-Escribimos $\mathbf {T^{-1}}$ como vectores fila, es decir:
+Escribimos $\mathbf {T^{-1}}$ en función de sus vectores fila, es decir:
 
 $$\mathbf{T^{-1}} = \begin{bmatrix}
 \mathbf{t_1}\\
@@ -98,7 +98,7 @@ $$
 -a_1&-a_2&-a_3\\
 1&0&0\\
 0&1&0\\
-\end{bmatrix} 
+\end{bmatrix}
 \begin{bmatrix}
 \mathbf{t_1}\\
 \mathbf{t_2}\\
@@ -112,7 +112,7 @@ $$
 
 +++
 
-Trabajando con las columnas 2 y 3 se tiene que:
+Igualando las filas 2 y 3 se tiene que:
 
 $$\left.\begin{array}{lll}
 \mathbf{t_1} &=&\mathbf{t_2 A}\\
@@ -121,9 +121,9 @@ $$
 
 +++
 
-Por otro lado, asumiendo que $\mathbf B_c$ está en la forma canónica de control, tenemos la relación
+Por otro lado, como $\mathbf B_c$ también debe estar en la forma canónica de controlabilidad, tenemos la relación
 
-$$ \mathbf{T^{-1}}\mathbf B=\mathbf{B_c}$$ 
+$$ \mathbf{T^{-1}}\mathbf B=\mathbf{B_c}$$
 
 o:
 
@@ -135,7 +135,7 @@ $$  \begin{bmatrix}
 1\\
 0\\
 0\\
-\end{bmatrix}$$  
+\end{bmatrix}$$
 
 Combinando las ecuaciones anteriores se tiene que:
 
@@ -151,8 +151,8 @@ $$\mathbf{t_3}\left[\mathbf B\quad \mathbf{AB}\quad \mathbf{A^2B}\right] = \left
 
 $$\mathbf{t_3}=[0\quad 0 \quad 1]\mathcal{C}^{-1}$$
 
-donde $\mathcal C$ es la matriz de controlabilidad, con $\mathcal C = \left[\mathbf B\quad \mathbf{AB}\quad 
-\mathbf{A^2B}\right]$. 
+donde $\mathcal C$ es la matriz de controlabilidad, con $\mathcal C = \left[\mathbf B\quad \mathbf{AB}\quad
+\mathbf{A^2B}\right]$.
 
 Obteniendo $\mathbf{t_3}$ podemos obtener el resto de las filas de $\mathbf{T^{-1}}$.
 
@@ -160,11 +160,11 @@ Por lo tanto, en general para un sistema de orden $n$, la matriz de controlabili
 
 $$\mathcal C =\left[ \mathbf{B}\quad\mathbf{AB}\quad\mathbf{A^2B}\quad\dots\quad\mathbf{A^{n-1}B}\right]$$
 
-Por lo tanto, la última columna de la matriz $\mathbf{T^{-1}}$ resulta:
+Por lo tanto, la última fila de la matriz $\mathbf{T^{-1}}$ resulta:
 
 $$\mathbf{t_n}=\left[0\quad 0\quad\dots\quad 1\right]\mathcal C^{-1}$$
 
-La matriz $T^{-1}$  se construye como:
+La matriz $\mathbf{T^{-1}}$ se construye como:
 
 $$
 \mathbf{T^{-1}}=\begin{bmatrix}
@@ -177,21 +177,20 @@ $$
 
 +++
 
-## Definición:
-**Un sistema es controlable si existe su forma canónica de controlabilidad.**
+```{admonition} Definición
+
+Un sistema es controlable si existe su forma canónica de controlabilidad.
+```
 
 Podemos ver de las ecuaciones anteriores que solamente podremos obtener $\mathbf{T^{-1}}$ y por ende $\mathbf{T}$, si existe $\mathcal{C}^{-1}$. Para esto tenemos que asegurar que el rango de $\mathcal C$ sea igual al orden del sistema $n$.
 
-Es importante notar que al definir la controlabilidad no depende de la matriz $\mathbf{C}$, sino que depende solo de la matriz $\mathbf{A}$ y $\mathbf{B}$.
+Es importante notar que la controlabilidad no depende de la matriz $\mathbf{C}$, sino solo de las matrices $\mathbf{A}$ y $\mathbf{B}$.
 
-La matriz $\mathbf{B}$ es la relacionada con las entradas del sistema. Nada tiene que ver con las salidas. En caso del que el sistema no sea controlable será necesario rediseñar la forma en que actuamos sobre del sistema. Nada resolveremos respecto a la controlabilidad cambiando, mejorando o agregando mediciones.
+La matriz $\mathbf{B}$ es la relacionada con las entradas del sistema. Nada tiene que ver con las salidas. En caso de que el sistema no sea controlable será necesario rediseñar la forma en que actuamos sobre el sistema. Nada resolveremos respecto a la controlabilidad cambiando, mejorando o agregando mediciones.
 
+## Transformación a la forma canónica de observabilidad
 
-
-# Transformación a la forma canónica de observabilidad
-
-
-La matrices de un sistema de orden 3 lineal e invariante en el tiempo representado mediante su forma canónica de observabilidad tiene la forma:
+Las matrices de un sistema lineal e invariante en el tiempo de orden 3, representado mediante su forma canónica de observabilidad, tienen la forma:
 
 $$
 \mathbf{A_o} = \begin{bmatrix}
@@ -217,7 +216,7 @@ $$\mathbf{x}=\mathbf{Tz}$$
 
 +++
 
-Esto transforma a mi sistema en:
+Esto transforma al sistema en:
 
 $$
 \begin{array}{rcl}
@@ -230,7 +229,7 @@ $$
 
 +++
 
-Como queremos obtener el forma canónica de observabilidad llamamos $\mathbf{\bar A} = \mathbf{A_o}$, $\mathbf{\bar B} =  \mathbf{B_o}$, $\mathbf{\bar C} = \mathbf{C_o}$ y a $\bar D = D_o$. 
+Como queremos obtener la forma canónica de observabilidad, llamamos $\mathbf{\bar A} = \mathbf{A_o}$, $\mathbf{\bar B} =  \mathbf{B_o}$, $\mathbf{\bar C} = \mathbf{C_o}$ y a $\bar D = D_o$.
 
 De las ecuaciones de la transformación tenemos:
 
@@ -297,7 +296,7 @@ $$\begin{bmatrix}
 
 +++
 
-Llamando a la matriz de observabilidad 
+Llamando a la matriz de observabilidad
 
 $$\mathcal{O}=\begin{bmatrix}
 \mathbf{C}\\
@@ -305,7 +304,7 @@ $$\mathcal{O}=\begin{bmatrix}
 \mathbf{CA}^2
 \end{bmatrix}$$
 
-podemos obtener $\mathbf{t_3}$ que es la última columna de la matriz de transformación $\mathbf{T}$, y con esta la otras columnas de la matriz de transformación.
+podemos obtener $\mathbf{t_3}$, que es la última columna de la matriz de transformación $\mathbf{T}$, y con esta las otras columnas de la matriz de transformación.
 
 +++
 
@@ -335,13 +334,13 @@ Un sistema es observable si existe su forma canónica de observabilidad.
 
 Podemos ver de las ecuaciones anteriores que solamente podremos obtener $\mathbf{T}$ si existe $\mathcal{O}^{-1}$. Para esto tenemos que asegurar que el rango de $\mathcal O$ sea igual al orden del sistema $n$.
 
-Es importante notar que definir la observabilidad no depende de la matriz $\mathbf{B}$, sino que depende solo de la matriz $\mathbf{A}$ y $\mathbf{C}$.
+Es importante notar que la observabilidad no depende de la matriz $\mathbf{B}$, sino solo de las matrices $\mathbf{A}$ y $\mathbf{C}$.
 
-La matriz $\mathbf{C}$ es la relacionada con las salidas del sistema. Nada tiene que ver con las entradas. En caso del que el sistema no sea observable será necesario rediseñar la forma en que tomamos las mediciones del sistema. Nada resolveremos respecto a la observabilidad modificando los actuadores.
+La matriz $\mathbf{C}$ es la relacionada con las salidas del sistema. Nada tiene que ver con las entradas. En caso de que el sistema no sea observable será necesario rediseñar la forma en que tomamos las mediciones del sistema. Nada resolveremos respecto a la observabilidad modificando los actuadores.
 
 +++
 
-## Ejemplo masa resorte: obtener la forma canónica de observabilidad y con matriz de transformación T
+## Ejemplo masa-resorte: forma canónica de observabilidad mediante la matriz de transformación T
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -350,7 +349,7 @@ import control as ctrl
 import numpy as np
 ```
 
-Definimos los parámetros del sistema
+Definimos los parámetros del sistema:
 
 ```{code-cell} ipython3
 b=20
@@ -380,21 +379,21 @@ $$\mathcal{O}=\begin{bmatrix}
 
 +++
 
-Apilamos verticalmente $\mathbf C$ y $\mathbf{CA}$
+Apilamos verticalmente $\mathbf C$ y $\mathbf{CA}$:
 
 ```{code-cell} ipython3
 O=np.vstack((sys.C, sys.C@sys.A))
 O
 ```
 
-Ahora calculamos la última columna de $\mathbf T$.
+Ahora calculamos la última columna de $\mathbf T$:
 
 ```{code-cell} ipython3
-t2=np.linalg.inv(O)*np.matrix("0;1")
+t2=np.linalg.inv(O)@np.array([[0],[1]])
 t2
 ```
 
-Calculamos la columna $\mathbf {t_1}$
+Calculamos la columna $\mathbf {t_1}$:
 
 ```{code-cell} ipython3
 t1=A@t2
@@ -404,7 +403,7 @@ t1=A@t2
 t1
 ```
 
-Apilamos horizontalmente $\mathbf{t_1}$ y $\mathbf{t_2}$.
+Apilamos horizontalmente $\mathbf{t_1}$ y $\mathbf{t_2}$:
 
 ```{code-cell} ipython3
 T=np.hstack((t1,t2))
@@ -425,7 +424,7 @@ Co=sys.C@T
 Do=D
 ```
 
-Podemos verificar que las funciones transferencias del sistema antes de transformar y después de transformarlo son las mismas:
+Podemos verificar que las funciones transferencia del sistema antes y después de transformarlo son las mismas:
 
 ```{code-cell} ipython3
 sys_o=ctrl.ss(Ao,Bo,Co,Do)
@@ -438,28 +437,27 @@ print("sistema sin transformar:",ctrl.tf(sys),"sistema en su forma canónica de 
 
 ## Obtención de la forma canónica de controlabilidad
 
-
 Para obtener la forma canónica de controlabilidad debemos obtener la matriz $\mathcal{C}$. Como el sistema es de orden 2 es:
 
 $$\mathcal{C}=\begin{bmatrix}
 \mathbf B & \mathbf{AB}
 \end{bmatrix}$$
 
-Apilamos horizontalmente $\mathbf B$ y $\mathbf{AB}$
+Apilamos horizontalmente $\mathbf B$ y $\mathbf{AB}$:
 
 ```{code-cell} ipython3
 Con=np.hstack((sys.B,sys.A@sys.B))
 Con
 ```
 
-Ahora calculamos la última fila de $\mathbf{T}^{-1}$, $\mathbf{t2}$
+Ahora calculamos la última fila de $\mathbf{T}^{-1}$, $\mathbf{t_2}$:
 
 ```{code-cell} ipython3
-t2=np.matrix([[0,1]])*np.linalg.inv(Con)
+t2=np.array([[0,1]])@np.linalg.inv(Con)
 t2
 ```
 
-Calculamos la fila $\mathbf {t_1}$
+Calculamos la fila $\mathbf {t_1}$:
 
 ```{code-cell} ipython3
 t1=t2@A
@@ -469,7 +467,7 @@ t1=t2@A
 t1
 ```
 
-Apilamos verticalmente $\mathbf{t_1}$ y $\mathbf{t_2}$.
+Apilamos verticalmente $\mathbf{t_1}$ y $\mathbf{t_2}$:
 
 ```{code-cell} ipython3
 invT=np.vstack((t1,t2))
@@ -479,13 +477,13 @@ T=np.linalg.inv(invT)
 Finalmente calculamos las matrices del sistema transformado:
 
 ```{code-cell} ipython3
-Ac=invT*sys.A*T
+Ac=invT@sys.A@T
 Bc=invT@B
 Cc=sys.C@T
 Dc=D
 ```
 
-Podemos verificar que las funciones transferencias del sistema antes de transformar y después de transformarlo son las mismas:
+Podemos verificar que las funciones transferencia del sistema antes y después de transformarlo son las mismas:
 
 ```{code-cell} ipython3
 sys_c=ctrl.ss(Ac,Bc,Cc,Dc)
@@ -495,11 +493,11 @@ sys_c=ctrl.ss(Ac,Bc,Cc,Dc)
 print("sistema sin transformar:",ctrl.tf(sys),"sistema en su forma canónica de controlabilidad:", ctrl.tf(sys_c))
 ```
 
-## Transformación a la forma canónica modal:
+## Transformación a la forma canónica modal
 
 Veremos solo el caso de autovalores reales simples.
 
-### Definición.
+### Definición
 
 Sea la matriz $\mathbf{A} \in \Bbb R^{n\times n}$. Diremos que  $\lambda \in \Bbb K (= \Bbb R\text{ o } \Bbb C)$ es un autovalor de $\mathbf{A}$ si existe un vector $\mathbf{v} \in \Bbb K^n$, con $\mathbf v \neq 0$ tal que:
 
@@ -509,7 +507,7 @@ en cuyo caso se dice que $\mathbf{v}$ es un autovector asociado al autovalor $\l
 
 +++
 
-Suponiendo que $\mathbf A$ tienen $n$ autovalores diferentes, entonces podemos escribir en forma matricial $n$ ecuaciones para los $n$ pares autovalores-autovector
+Suponiendo que $\mathbf A$ tiene $n$ autovalores diferentes, podemos escribir en forma matricial las $n$ ecuaciones para los $n$ pares autovalor-autovector:
 
 +++
 
@@ -540,7 +538,6 @@ $$\begin{bmatrix}
 0&0&\lambda_3\\
 \end{bmatrix}=\mathbf{T}^{-1}\mathbf{A T}$$
 
-
 donde:
 
 $$\mathbf{A_m}=\begin{bmatrix}
@@ -549,23 +546,23 @@ $$\mathbf{A_m}=\begin{bmatrix}
 0&0&\lambda_3\\
 \end{bmatrix}$$
 
-Nuevamente $\mathbf{B_m}$ se obtiene como $\mathbf{B_m}=\mathbf{T}^{-1}\mathbf{B}$ y $\mathbf{C_m}=\mathbf{CT}$ 
+Nuevamente, $\mathbf{B_m}$ se obtiene como $\mathbf{B_m}=\mathbf{T}^{-1}\mathbf{B}$ y $\mathbf{C_m}=\mathbf{CT}$.
 
-La forma canónica modal tiene la particularidad de independizar los estados unos de otros. Es decir, cada estado se conecta solo con la entrada y con la salida y no se conectan entre si (cada estado no depende de otro estado).
+La forma canónica modal tiene la particularidad de independizar los estados unos de otros. Es decir, cada estado se conecta solo con la entrada y con la salida, y no se conectan entre sí (cada estado no depende de otro estado).
 
-Esta forma canónica nos da la posibilidad de estudiar controlabilidad y observabilidad sin pasar por las matrices $\mathcal C$ y $\mathcal O$. 
+Esta forma canónica nos da la posibilidad de estudiar controlabilidad y observabilidad sin pasar por las matrices $\mathcal C$ y $\mathcal O$.
 
-Si todos los estados están conectados con la entrada entonces el sistema es controlable. Para que se de esto, la matriz $\mathbf{B_m}$  tiene que tener todas sus componentes distintas de 0.
+Si todos los estados están conectados con la entrada, entonces el sistema es controlable. Para que se dé esto, la matriz $\mathbf{B_m}$ tiene que tener todas sus componentes distintas de 0.
 
-Si todos los estados están conectados con la salida entonces el sistema es observable. Para que se de esto, la matriz $\mathbf{C_m}$ tiene que tener todas sus componentes distintas de 0.
+Si todos los estados están conectados con la salida, entonces el sistema es observable. Para que se dé esto, la matriz $\mathbf{C_m}$ tiene que tener todas sus componentes distintas de 0.
 
 +++
 
 ## Ejemplo de transformación a la forma canónica modal
 
-La matriz de transformación son los autovectores. 
+La matriz de transformación tiene como columnas a los autovectores.
 
-El módulo linalg de numpy tiene una función que se llama eig, que los devuelve los autovectores y autovalores. Los autovalores lo devuelve en forma de ndarray y luego devuelvo los autovalores como un array. Vamos a utilizar esta función para calcular la matriz de transformación $T$. Los autovalores los vamos a usar para verificar que luego de aplicar la transformación la matriz $A_m$ resulte ser diagonal con los autovalores en la diagonal.
+El módulo `linalg` de `numpy` tiene una función llamada `eig`, que devuelve los autovalores en un array y los autovectores como columnas de una matriz. Vamos a utilizar esta función para calcular la matriz de transformación $T$. Los autovalores los vamos a usar para verificar que luego de aplicar la transformación la matriz $A_m$ resulte ser diagonal con los autovalores en la diagonal.
 
 ```{code-cell} ipython3
 lamb,v=np.linalg.eig(A)
@@ -597,19 +594,18 @@ sys_m = ctrl.ss(Am,Bm,Cm,Dm)
 sys_m
 ```
 
-Observando la matriz $\mathbf{A}$ del sistema en su forma canónica modal tiene en su diagonal lo autovalores, y fuera de esto valores igual a 0 o muy cercanos a ceros. Las diferencias con ceros son error numéricos y podemos considerar que la transformación resultó correcta.
+Observando la matriz $\mathbf{A}$ del sistema en su forma canónica modal, vemos que tiene en su diagonal los autovalores y, fuera de ella, valores iguales a 0 o muy cercanos a 0. Las diferencias con 0 son errores numéricos y podemos considerar que la transformación resultó correcta.
 
 +++
 
-Por otro lado podemos ver que todos las componentes de B en esta forma canónica son distintos de 0, por lo que el sistema es controlable.
+Por otro lado, podemos ver que todas las componentes de $\mathbf B$ en esta forma canónica son distintas de 0, por lo que el sistema es controlable.
 
 +++
 
-Finalmente, para el sistema en la forma canónica modal, todas las componentes de C son distintas de 0,por lo que el sistema es observable.
+Finalmente, para el sistema en la forma canónica modal, todas las componentes de $\mathbf C$ son distintas de 0, por lo que el sistema es observable.
 
 +++
 
 ```{warning}
-Respecto al uso de numpy. La multiplicación de matrices usando el * la entiende como elemento a elemento si el tipo de datos es un ndarray o un array. Si usamos ese tipo de datos, entonces para que numpy entienda multiplicación de matrices se debe usar el símbolo @. Si el tipo de datos que se está operando es una matriz de `numpy` entonces la multiplicación de matrices se puede hacer con *.
-
+Respecto al uso de `numpy`: con arrays (`ndarray`), el operador `*` multiplica elemento a elemento. Para la multiplicación de matrices se debe usar el operador `@`. La clase `np.matrix`, con la que `*` sí multiplica matrices, está desaconsejada y puede eliminarse en futuras versiones de `numpy`, por lo que en este libro se usan arrays con `@`.
 ```
