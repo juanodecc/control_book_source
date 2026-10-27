@@ -129,3 +129,9 @@ dmypy.json
 .pyre/
 # jupyter book builds
 _build/
+notebooks_sources/modulo5/files.zip
+notebooks_sources/modulo5/espec_frecuencial/ejercicio1.png
+notebooks_sources/modulo5/espec_frecuencial/ejercicio2.png
+notebooks_sources/modulo5/espec_frecuencial/ejercicio3.png
+notebooks_sources/modulo5/espec_frecuencial/ejercicio4.png
+notebooks_sources/modulo5/espec_frecuencial/ejercicio5.png
