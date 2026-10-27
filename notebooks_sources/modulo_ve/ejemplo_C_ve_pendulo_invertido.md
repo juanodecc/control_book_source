@@ -20,7 +20,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-# Diseño del sistema de control del péndulo invertido
+# Diseño del sistema de control del péndulo
 
 Seguimos con el ejemplo de teoría, pero con un pequeño cambio:
 
