@@ -136,7 +136,7 @@ Márgenes de fase y ganancia del sistema
 
 ## Objetivos de un sistema de control
 
-Sea el sistema de control de la {numref}`Figura %s <espec_frec_fig4_err>`, donde además se agrega una perturbación $l$ a la entrada de la planta.
+Sea el sistema de control de la {numref}`Figura %s <espec_frec_fig4>`, donde además se agrega una perturbación $l$ a la entrada de la planta.
 
 ```{figure}  espec_frec_fig4_err.png
 ---
